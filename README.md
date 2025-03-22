@@ -1,25 +1,56 @@
-Enhance your FiveM server with a **real-life time daily rewards system**! Players can open a reward crate every day, receiving various customizable rewards such as **weapons, items, and money**.  
+# Daily Rewards System for FiveM
 
-## ✨ Features  
-- ✅ **Fully Customizable** – Easily configure rewards, crate types, and settings in a simple config file.  
-- ⏳ **Real-Life Time Daily Rewards** – Ensures players can only claim rewards once per real-world day.  
-- 📅 **Dynamic Monthly Crate System** – The number of available crates matches the days in the month, and the system resets at the start of each new month.  
-- 🎁 **Wide Variety of Rewards** – Choose from weapons, items, or in-game currency.  
-- ⚡ **Optimized for Performance** – Lightweight and efficient code to ensure smooth server performance.  
-- 💾 **Database Support** – Uses **Oxmysql** to track claimed rewards, ensuring no progress is lost.  
-- 🔗 **Dependency Support** – Built to work seamlessly with **Ox_Lib, Oxmysql, and Ox_inventory**.  
+Enhance your FiveM server with a real-life time daily rewards system! Players can open a reward crate every day, receiving customizable rewards like money, items, or weapons, all integrated with ESX, OX Inventory, and OX Lib.
 
-Give your players a reason to return daily with a rewarding and engaging system! 🚀  
+## ✨ Features
+- ✅ **Fully Customizable** – Easily configure rewards, rarities, and notifications in the `config.lua` file.
+- ⏳ **Real-Life Time Daily Rewards** – Players can claim one reward per real-world day, tracked via database.
+- 📅 **Dynamic Monthly Crate System** – Matches the number of days in the current month and resets monthly.
+- 🎁 **Variety of Rewards** – Includes money (bank), items, and weapons with configurable rarity tiers (common, rare, epic, legendary).
+- ⚡ **Optimized Performance** – Lightweight code designed for smooth server operation.
+- 💾 **Database Support** – Uses Oxmysql to persistently track claimed rewards and player progress.
+- 🔗 **Dependency Integration** – Seamlessly works with ESX, OX Lib, and OX Inventory.
+- 🎰 **Rarity-Based Rewards** – Probabilistic reward system with adjustable chances for each rarity tier.
 
-## 🔥 Upcoming Features  
-- 🪙 **Coin Shop System** – Players will earn **coins** every time they open a crate. These coins can be redeemed for **cars, exclusive items, or other special rewards**, adding an extra layer of progression.  
-- 🎨 **Improved UI** – A more advanced and user-friendly interface with additional functionalities for a better player experience.  
-- ⚙️ **Further Optimization** – Even more performance improvements to ensure a smooth and seamless experience on all servers.  
-
-Stay tuned for these exciting updates! 🔥  
+Give your players a reason to log in daily with this engaging and rewarding system! 🚀
 
 ---
-💻 **Requirements:**  
-- [Ox_Lib](https://github.com/overextended/ox_lib)  
-- [Oxmysql](https://github.com/overextended/oxmysql)  
-- [Ox_inventory](https://github.com/overextended/ox_inventory)
+
+## 🔥 Upcoming Features
+- 🪙 **Coin Shop System** – Earn coins with each crate opening, redeemable for exclusive items, vehicles, or perks.
+- 🎨 **Improved UI** – A more polished and interactive interface with additional functionalities.
+- ⚙️ **Further Optimization** – Continued performance enhancements for larger servers.
+
+Stay tuned for these exciting updates! 🔥
+
+---
+
+## 💻 Requirements
+- [ESX Framework](https://github.com/esx-framework/es_extended)
+- [OX_Lib](https://github.com/overextended/ox_lib)
+- [OX_Inventory](https://github.com/overextended/ox_inventory)
+- [Oxmysql](https://github.com/overextended/oxmysql)
+
+---
+
+## 📥 Installation
+1. Download the latest release from this repository.
+2. Extract the folder into your server's `resources` directory.
+3. Rename the folder to `daily_rewards` (if not already named).
+4. Add `ensure daily_rewards` to your `server.cfg`.
+5. Configure the `config.lua` file with your desired rewards and settings.
+6. Ensure all dependencies are installed and running.
+7. Create the database table using the SQL below.
+8. Restart your server or use `refresh` followed by `start daily_rewards`.
+
+### SQL Table Creation
+```sql
+CREATE TABLE IF NOT EXISTS `daily_rewards` (
+  `identifier` varchar(50) NOT NULL,
+  `last_claim` bigint(20) DEFAULT 0,
+  `current_day` int(11) DEFAULT 1,
+  `claimed_days` text DEFAULT '[]',
+  `current_month` varchar(2) DEFAULT NULL,
+  `current_year` varchar(4) DEFAULT NULL,
+  PRIMARY KEY (`identifier`)
+);
