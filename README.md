@@ -2,15 +2,14 @@
 
 Enhance your FiveM server with a real-life time daily rewards system! Players can open a reward crate every day, receiving customizable rewards like money, items, or weapons, all integrated with ESX, OX Inventory, and OX Lib.
 
-## ✨ Features
-- ✅ **Fully Customizable** – Easily configure rewards, rarities, and notifications in the `config.lua` file.
-- ⏳ **Real-Life Time Daily Rewards** – Players can claim one reward per real-world day, tracked via database.
-- 📅 **Dynamic Monthly Crate System** – Matches the number of days in the current month and resets monthly.
-- 🎁 **Variety of Rewards** – Includes money (bank), items, and weapons with configurable rarity tiers (common, rare, epic, legendary).
-- ⚡ **Optimized Performance** – Lightweight code designed for smooth server operation.
-- 💾 **Database Support** – Uses Oxmysql to persistently track claimed rewards and player progress.
-- 🔗 **Dependency Integration** – Seamlessly works with ESX, OX Lib, and OX Inventory.
-- 🎰 **Rarity-Based Rewards** – Probabilistic reward system with adjustable chances for each rarity tier.
+## Features
+- ⏰ **Real-Time 24-Hour Cooldown**: Players can claim a reward once every 24 hours, tracked in real-time using a MySQL database, independent of server restarts or player online status.
+- 📅 **Monthly Reward Grid**: Displays a crate for each day of the current month, with visual indicators for claimed, available, and locked rewards.
+- 🎁 **Configurable Rewards**: Define rewards (money, items, weapons) with custom rarities (common, rare, epic, legendary) and probabilities in `config.lua`.
+- 🖼️ **Interactive UI**: Built with HTML, CSS, and JavaScript, featuring a timer, reward pop-ups, and a chances overlay showing possible rewards.
+- 💾 **Database Sync**: Player progress (last claim, current day, claimed days) is stored in a MySQL database for persistence.
+- 🤝 **ESX Integration**: Seamlessly integrates with the ESX framework for player management and inventory handling.
+- 🔊 **Sound Effects**: Includes an optional sound effect when claiming a reward.
 
 Give your players a reason to log in daily with this engaging and rewarding system! 🚀
 
